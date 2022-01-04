@@ -50,6 +50,8 @@ git init -> git remote add origin 주소
 
 git pull -> git add . -> git commit -m "(feat/fix)" -> git push origin 브랜드
 
+vscode 수정 -> + source control 옆 ...클릭 -> commit  -> push to -> 주소창클릭.
+
 
 
 
