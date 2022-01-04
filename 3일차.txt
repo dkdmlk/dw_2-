@@ -44,6 +44,8 @@
 
 git 첫작업 시작 git init(새로운 시작) /git clone(불러운 주소)
 
+이미  init remote or clone 이 된폴더는 다시칠 필요가없음.
+
 git init -> git remote add origin 주소
 
 git pull -> git add . -> git commit -m "(feat/fix)" -> git push origin 브랜드
