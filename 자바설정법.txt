@@ -1,0 +1,4 @@
+자바 설정
+내pc -> 마우스 오른쪽 -> 속성 -> 고급시스템 설정 - >환경변수 ->시스템 변수 새로만들기 버튼 -> 변수이름JAVA_HOME 
+-> JDK(java development kit)가설치된 폴더 경로들어가기 -> 설치된경로 복사해서 변수값에 붙혀놓기 ->변수이름 path 찾은후 편집버튼
+->새로만들기 버튼클릭 -> %JAVA_HOME%\bin\ 확인확인확인-> cmd -> javac -> (java -version)
