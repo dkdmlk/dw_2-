@@ -1,0 +1,51 @@
+라우터(게이트웨이)
+공인ip(진짜ip)
+같이 쓰고있는 wifi(사설ip)
+로컬(자신의자리/쓰고있는pc)
+*로컬주소(본인pc):127.0.0.1 (디폴트 값)
+loaclhost
+[혼자 일할때 로컬주소][팀으로 할경우 호스트ip]
+
+ex)ip를 적으시오!
+ip->192.168.0.26 = localhost (=본인 ip를 의미)
+
+(데이터베이스)
+=> 데이터베이스 종류는 여러개나 문법은 동일 
+=> 오라클, (MYSQL, Maria db) 
+=> 데이터베이스를 잘배우면 ( 웹, 앱, iot, 데이터분석분야, AI) 
+* 공통점 *데이터가 있어야 한다.
+* 모든 어플리케이션의 시작점!
+ SQLD 자격증(DB)
+ port:서버에 접속할 수 있는 문 (라우터->서버->port(서버의문[호수])->서버ip)
+ (192.168.0.26:3306)
+
+mySQL(관계형 DB[RDB])
+ -DB ->tableA->data
+   ↘->tableB->data
+   ↘->tableC->data
+(data는 테이블에있고 DB는 테이블을 관리하는것)
+table끼리는 관계가 있다.
+DB종류 - 관계형DB(RDB) / 비관계형DB
+블록체인은 비관게형DB
+int 정수 VARCHAR 문자
+
+***DDL(data Definition Language) 데이터 정의 언어
+CREATE TABLE <table_name> : table 생성
+DROP TABLE <table_name>   : table 삭제
+ALTER TABLE <table_name>  : table 수정 (테이블 이름 변경할떄씀)
+
+***DML (DATA manipulation Language) 데이터 조작 언어
+SELECT :데이터 조회
+DELETE :데이터 삭제
+UPDATE :데이터 수정
+INSERT :데이터 생성
+
+DCL (data control Language) 데이터 제어언어
+GRANT  : 특정 사용자에게 권한 부여
+REBOKE : 특정 사용자 권한 회수
+
+DB 읽는 순서
+from -> where -> SELECT
+
+
+
