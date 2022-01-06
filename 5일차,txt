@@ -1,0 +1,105 @@
+1. 데이터를 저장하는 프로그램을 배우는것
+   => 데이터베이스 
+2. SQL이라는 문법을 통해서 데이터를 가져와야함.
+**정보처리기사 필기 단골 문제
+ ***DDL(Data Defintion Language)
+    공통점 : table을 관리하는 명령어
+    -CREATE
+    -DROP
+    -ALTER
+*****DML (Data Manipulation Language)
+    공통점 : table 안에 있는 데이터를 관리하는 명령어
+    - SELECT
+    - DELETE
+    - INSERT
+    - DUDATE
+    DCL  (Data Control Language)
+    공통점 : 데이터베이스 관리
+    - GRANT
+    - REVOKE
+
+-문법
+ SELECT
+  <컬럼 이름>,
+  <컬럼 이름>,
+  ...n
+ FROM 
+  <테이블 이름>
+ WHERE <--필터링 기능
+  <조건>
+  <컬럼> = <조건>
+  문자를조회 "",''
+----
+<emp 테이블 컬럼뜻>
+MGR 사수번호
+HIREDATE 고용날짜
+SAL 월급
+COMM 보너스
+DEPTNO 부서번호
+
+****관계 연산자
+==> >(크다), <(작다), <=(이하), >=(이상), =(같다), !=(다르다) 
+
+count(*)=몇명
+as=별칭을주다 
+(ex count(*) as '총합' = 총합 12명 출력
+    ename as '사원이름' -사원이름 출력
+ COUNT   사원이름
+   12      OOO
+
+****논리연산자
+    and, or
+
+정렬
+order by 명령어 (where문뒤에옴)
+desc 내림차순
+asc 올림차순 (디폴트값)
+oder by : 맨 마지막에 실행되는 문법.
+*최대한 order by는 실행하지 않는 것이 좋음
+
+컴퓨터의 명령어 작업순서
+from -> where -> SELECT -> order by
+
+null = 해당데이터를 처음부터 넣지 않음
+where <컬럼> is null     =null 조회
+where <컬럼> is not null =null 제외 조회
+
+이름조회
+where <컬럼> like '이름'
+where ename like 'a%'    (이름이a인 사람을 조회)
+where ename like '%l%l%' (이름이 l이 두개인 사람을 조회)
+중복 코드는 나쁨
+
+insert into (너 어디테이블에 데이터 insert)
+values
+ex)insert into emp 
+   (EMPNO , ENAME,   JOB, mgr, HIREDATE,   sal,comm,  deptno)
+   values
+   (8001, '강인석','salesman', 7369,'2022-01-06',5000, 1000, 30)
+
+update <테이블> = 수정
+set <칼럼> = <수정내용>
+where <pk> = <pk고유번호>;
+
+통계
+select
+  sum(통계 하고자 하는 칼럼) as '보너스 총 합'
+  from <테이블>
+함수
+sum   = 합
+avg   = 평균
+count = 몇
+max   = 최고
+min   = 최소
+
+
+
+
+
+
+
+
+
+
+
+
