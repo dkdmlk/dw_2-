@@ -38,7 +38,12 @@ COMM 보너스
 DEPTNO 부서번호
 
 ****관계 연산자
-==> >(크다), <(작다), <=(이하), >=(이상), =(같다), !=(다르다) 
+==> >(크다)
+<(작다)
+<=(이하)
+>=(이상)
+=(같다)
+!=(다르다) 
 
 count(*)=몇명
 as=별칭을주다 
@@ -54,7 +59,7 @@ as=별칭을주다
 order by 명령어 (where문뒤에옴)
 desc 내림차순
 asc 올림차순 (디폴트값)
-oder by : 맨 마지막에 실행되는 문법.
+order by : 맨 마지막에 실행되는 문법.
 *최대한 order by는 실행하지 않는 것이 좋음
 
 컴퓨터의 명령어 작업순서
@@ -81,6 +86,9 @@ update <테이블> = 수정
 set <칼럼> = <수정내용>
 where <pk> = <pk고유번호>;
 
+and / or
+ex)where <컬럼> >= <내용> and <컬럼> <= <내용>
+
 통계
 select
   sum(통계 하고자 하는 칼럼) as '보너스 총 합'
@@ -92,9 +100,59 @@ count = 몇
 max   = 최고
 min   = 최소
 
+****문자열 연산자
+like
 
+group by :그룹(같은것을 짝지어줌)
+having <함수>:자세히 찾기
 
+ex)select
+   job,
+   sum(sal) :부서별 월급 총합
+from emp
+group by job :직업 묶기
+having sum(sal) > 6000 :월급이 6000이상이 직업
 
+ex)select 
+  ename,                   
+  job,                     
+  max(sal)                 :이름 직업 최고월급조회
+from emp                   
+where job = "manager"      :매니저중
+group by DEPTNO            :그룹 deptno중에
+having max(sal) >= 5000    :5000이상
+-> 매니저 그룹 deptno중 월급이 5000이상인 사람의 이름 직업 최고월급 조회
+순서 from-> where-> grope by-> having -> select->order by  *시험문제
+grope by는 grope by만 돼는것만 되며 포함이 안돼면 가장 위의 이름이 나옴.
+
+select
+  DEPTNO,
+  avg(sal),
+  count(*),
+  max(sal),
+  min(sal)
+from emp
+group by DEPTNO  :각 부서별 평균월급,총인원수,최고급여,최소급여 조회 
+
+함수
+sum                       : 합
+avg                       : 평균
+count                     : 몇
+max                       : 최고
+min                       : 최소
+
+group by                  :그룹(같은것을 짝지어줌)  
+having <함수>             :자세한 이름 찾기  
+where <컬럼> like '이름'
+is null                   :null 찾기
+is not null               :null 제외
+like                      : 이름조회
+
+as                       : 별칭을주다 
+
+order by
+desc 내림차순
+asc 올림차순 (디폴트값)
 
 
 
