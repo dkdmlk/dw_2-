@@ -83,6 +83,7 @@ ex)insert into emp
    values
    (8001, '강인석','salesman', 7369,'2022-01-06',5000, 1000, 30)
 
+업데이트 하는법
 update <테이블> = 수정
 set <칼럼> = <수정내용>
 where <pk> = <pk고유번호>;
@@ -154,6 +155,7 @@ as                       : 별칭을주다
 order by
 desc 내림차순
 asc 올림차순 (디폴트값)
+
 
 
 
