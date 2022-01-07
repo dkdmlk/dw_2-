@@ -12,11 +12,12 @@
     - SELECT
     - DELETE
     - INSERT
-    - DUDATE
+    - UPDATE
     DCL  (Data Control Language)
     공통점 : 데이터베이스 관리
     - GRANT
     - REVOKE
+
 
 -문법
  SELECT
