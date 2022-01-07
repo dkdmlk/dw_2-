@@ -1,0 +1,104 @@
+guoup by 할떄는
+select 절에 group 되는 컬럼이 위치.
+***
+select
+<커럼>
+from <테이블이름>
+where <조건 식>
+group by <컬럼이름>
+having <sum, avg, min, max>
+order by <정렬할 컬럼> desc / asc
+
+연산자는 where 절에 온다!
+관계 연산자 : !=, = , >, <, => , <=
+논리 연상자 : and , or
+문자 연산자 : like
+
+1. from (항상처음)
+2. where
+3. group by
+4. having
+5. select
+6. order by(항상마지막)
+
+다중행 함수
+--group by
+--sum, avg, min, max, count
+
+null처리 방법(임시)
+ifnull(comm, 100)
+ifnull(null이있는 컬럼, 바꿀숫자)
+IFNULL : 데이터가 null인 행에 임의 데이터 넣는다.
+(데이터를 UPDATE하는게 아님.)
+select 
+ ENAME,
+ ifnull(comm, 100)  **fake
+from emp
+
+***DATE_FORMAT 
+날짜 함수
+select
+ date_format(hiredate, '%Y-%m'),
+ count(*) 
+from emp
+group by date_format(HIREDATE, '%y') 
+
+where <컬럼> (함수) date_format(<컬럼>, '입력숫자')
+ex)
+1996년이상 컬럼-ㅇㅇ
+where ㅇㅇ >= date_format(ㅇㅇ,'1996.01.01')
+
+ date_format(날짜컬럼, '%y(년)-%m(월)~')
+
+
+ %Y 4자리년도          %m 숫자 월(두자리)
+ %M 긴 월(영문)        %b 짧은 월(영문) 
+ %W 긴 요일 이름(영문)  %a 짧은 요일 이름(영문) 
+ %i 분                 %T hh:mm:SS 
+ %b 짧은 월(영문)       %c 숫자 월(한자리는 한자리) 
+ %d 일자(두자리)        %e 일자(한자리는 한자리)
+ %l 시간(12시간)        %H시간(24시간)
+ %r hh:mm:ss AM,PM     %s 초
+
+-- AND, OR 
+WHERE 조건에 동시에 사용할떄 가 있음.
+1. AND (먼저 실행)
+2. OR 
+3. ()
+
+JOIN을 알기전에 알아야 하는 개념.
+Foreign Key
+###고급쿼리 (JOIN, Subquery ....)
+JOIN : 두 개 이상의 테이블을 조회할떄 사용.
+단, 조회 하고자 하는 테이블들이 관계까 있어야함.
+-- 조인하는 방법1.
+ select
+  ENAME 
+ from emp e, dept d 
+ where e.DEPTNO = d.DEPTNO 
+
+--조인하는 방법 2. 권장하는이유: 방법1은 where 을 이미 쓰고 있기 떄문에
+ select 
+  ename
+ from emp e
+ join dept d 
+ on e.DEPTNO = d.DEPTNO 
+
+  select 
+   ename
+  from emp e
+  inner join dept d 
+  on e.DEPTNO = d.DEPTNO
+
+  join 은 교집합 테이블끼리 같이 있는것만 조회
+where e.deptno = where d.deptno
+ 테이블끼리 컬럼이름이 같을경우 별칭을 앞에 써줘야한다.
+ ex) e.ename / d.ename
+
+dname=부서이름 loc=근무지
+
+
+
+
+
+
