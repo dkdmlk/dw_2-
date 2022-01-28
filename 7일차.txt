@@ -2,13 +2,13 @@ join : 두 개이상의 테이블을 조회할떄
 조인방법
 1.
 select
-form emp as e, dept as d
+from emp as e, dept as d
 where e.deptno = d.deptno
 
 2.
 select
 from emp as e
-foin dept d
+join dept d
 on e.deptno = d.deptno
 
 where
@@ -16,7 +16,7 @@ where
 3. 3개이상 ex)별칭은 중복이 안됨
 select
 from emp as e
-inner dept d
+inner join dept d
 on e.deptno = d.deptno
 inner join dw as dw
 on....
