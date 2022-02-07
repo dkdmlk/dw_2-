@@ -17,4 +17,13 @@
     언제 데이터를 먼저 필터링 해야할 때
     ex) emp테이블에 (급여가 3000천 이하) 을 찾고싶을떄.
 3. ***WHERE
+    where 서브쿼리:
+    -단일행
+    SELECT * FROM emp
+    WHERE ename = (SELECT ename FROM emp WHERE empno = 3000)
+    -다중행
+    in : 시제로 존재하는 데이터의 값을 비교
+    데이터가 많아지면 많아질 수록 속도가 느려짐.
+    SELECT * FROM emp
+    WHERE ename in (SELECT ename FROM emp WHERE sal <> 3000)
 ---------------
