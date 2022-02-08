@@ -27,3 +27,30 @@
     SELECT * FROM emp
     WHERE ename in (SELECT ename FROM emp WHERE sal <> 3000)
 ---------------
+sql
+DML
+- select
+
+- insert : 데이터를 저장
+    작성법 1.
+    INSERT INTI 테이블 이름(컬럼이름 [ex)'name',sal,job])
+    VALUES(컬럼에해당하는데이터 [ex)'홍길동',3000,'manager']) 
+    주의 : 테이블에 NULLABLE 
+        1. 테이블에 job컬럼이 not null이면, insert할떄 무저건 데이터를 넣어야 함. 
+        2. 테이블에 기본키가 auto increment 가 아니라면, 기본키 데이터를 넣어야 함.
+        3. commit 을해야  최종 insert가 됨. (디비버 같은 프로그램은 auto commit 으로 설정되어 있음.)
+    작성법 2.
+    해당 테이블에 데이터를 모두 넣으면, 테이블 뒤 괄호 생략
+    INSERT INTI 테이블
+    VALUES(컬럼에해당하는데이터 [ex)'홍길동',3000,'manager',...])
+
+- delete : 데이터 삭제
+    작성법
+    DELETE FROM 테이블이름
+    wHERE 컬럼 = 70
+    주의 : 
+        1. 해당 컬럼이 ON DELETE CASCADE 로 설정되어 있으면, 연관된 컬럼 모두 삭제됨.
+    실제로는 데이터 삭제x
+    삭제여부 컬럼을 만듬 ex) 컬럼이름 : 회원탈퇴 여부
+                             데이터 : 'y' or 'n'
+- update
