@@ -54,3 +54,22 @@ DML
     삭제여부 컬럼을 만듬 ex) 컬럼이름 : 회원탈퇴 여부
                              데이터 : 'y' or 'n'
 - update
+
+
+***SQL
+DDL (auto commit)
+1. CREATE
+    => 테이블 생성!
+    문법:
+    CREATE TABLE 테이블이름 (컬럼이름 데이터타입 조건)
+    ex) CREATE TABLE student(id INT(11) NOT NULL,name VARCHAR(20) NOT NULL, height INT(5),age INT(5) DEFAULT 0, create_at DATETIME DEFAULT CURRENT_TIMESTAMP);
+    -- pk키를 만들면서 테이블만들기 (스키마)
+    CREATE TABLE student(id INT(11) NOT null auto_increment,
+    name VARCHAR(20) NOT null , height INT(5),
+    age INT(5) DEFAULT 0, 
+    create_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ***CONSTRAINT student_id_pk primary key(id)
+);
+
+2. DROP
+3. ALTER
