@@ -89,9 +89,9 @@ DCL (data control Language) 데이터 제어언어
 GRANT  : 특정 사용자에게 권한 부여
 REBOKE : 특정 사용자 권한 회수
 
-TCL
-COMMIT , ROLLBACK
-논리적인 작업의 단위를 묶어서 DML에 의해 조작된 결과를 작업단위 별로 제어하는 명령어
+TCL : 논리적인 작업의 단위를 묶어서 DML에 의해 조작된 결과를 작업단위 별로 제어하는 명령어
+COMMIT (DML은 커밋 미포함,DDL은 커밋 포함)
+ROLLBACK : 실수로 DELETE 해도 ROLLBACK하면 최신 커밋상태로 돌아감
 
 COMMIT 문은 관계형 데이터베이스 관리 시스템(RDBMS)에서 트랜잭션을 종료하고 다른 사용자에게 변경된 모든 사항을 보이도록 만드는 문이다. 
 일반적으로 트랜잭션 종료시 해당 업데이트를 확정한다는 의미에서 "커밋"이라고 사용한다.
@@ -109,3 +109,37 @@ UNIQUE KEY(고유키)
 NULL 값 가능
 PRIMARY KEY 와의 다른점은 NULL 값으로 구분
 FOREIGN KEY(외래키)
+
+*****
+- 관계형 데이터베이스(R(관계)DBMS)
+데이터를 더욱 안전하게 저장.
+join이 있다.
+부모테이블과 자식테이블이 존재 (참조하는쪽이 자식  / 참조를주는쪽이 부모)
+ex) emp테이블에 deptno 컬럼이 있음.
+    deptno컬럼은 dept테이블에서!
+    emp테이블(자식)은 dept(부모)을 참조하고 있음.
+CREATE TABLE 테이블_이름 
+(
+    empno int(11),
+    ename VARCHAR(20),
+    detpno int(5)
+    foreign key(deptno) references dept(deptno)
+)
+    참조키(외래키)는 컬럼이름이 중요한게아니라, 데이터 타입이 같아야한다. 
+    조건:참조할려는 컴럼은 고유한 데이터를 가진 컬럼이여야 한다.
+    
+***조건
+on delete : 부모 데이터에 삭제 이벤트가 발생하면 자식 데이터에 이벤트 발생
+on update  : 부모 데이터에 수정 이벤트가 발생하면 자식 데이터에 이벤트 발생
+ex)foreign key(deptno) references dept(deptno)  on delete
+이벤트종류 : 아래중 하나 선택
+1. CASCADE     : 자식 데이터 삭제or수정
+2. set null    : 자식 데이터 null 업데이트
+3. set DEFAULT : 자식 데이터 default 값으로 없데이트
+4. restrict    : 부모 데이터 삭제 or 수정 불가능
+ex) ex)foreign key(deptno) references dept(deptno)  on delete CASCADE
+
+- 비관계형 데이터베이스(NoSQL)
+대표적 프로그램 : *Dynamobd, MongoDB
+join이 없다
+*분석이 목적 
