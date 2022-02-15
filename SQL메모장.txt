@@ -132,11 +132,13 @@ CREATE TABLE 테이블_이름
 on delete : 부모 데이터에 삭제 이벤트가 발생하면 자식 데이터에 이벤트 발생
 on update  : 부모 데이터에 수정 이벤트가 발생하면 자식 데이터에 이벤트 발생
 ex)foreign key(deptno) references dept(deptno)  on delete
+
 이벤트종류 : 아래중 하나 선택
-1. CASCADE     : 자식 데이터 삭제or수정
-2. set null    : 자식 데이터 null 업데이트
+1. CASCADE : 자식 데이터 삭제or수정
+2. set null : 자식 데이터 null 업데이트
 3. set DEFAULT : 자식 데이터 default 값으로 없데이트
-4. restrict    : 부모 데이터 삭제 or 수정 불가능
+*4. restrict(default) : 부모 데이터 삭제 or 수정 불가능
+5. NO ACTTON : 자식 테이블의 데이터는 변경되지 않습니다.
 ex) ex)foreign key(deptno) references dept(deptno)  on delete CASCADE
 
 - 비관계형 데이터베이스(NoSQL)
