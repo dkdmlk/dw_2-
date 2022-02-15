@@ -145,3 +145,16 @@ ex) ex)foreign key(deptno) references dept(deptno)  on delete CASCADE
 대표적 프로그램 : *Dynamobd, MongoDB
 join이 없다
 *분석이 목적 
+
+(학생테이블) --교유한것이 키가 됨.  (교수테이블)
+학생이름                            교수이름
+학생나이                            교수번호(기본키)
+교수번호(참조키,왜래키,fk)           담당과목
+학점                                연차
+학번 (기본키)
+학년
+
+(담당교수테이블)
+학생번호(참조키)
+교수번호(참조키)
+담당번호(기본키)
