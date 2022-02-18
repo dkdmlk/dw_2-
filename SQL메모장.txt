@@ -160,3 +160,16 @@ join이 없다
 학생번호(참조키)
 교수번호(참조키)
 담당번호(기본키)
+
+1. 데이터 타입이 문자형인 vachar 컬럼에 정수형 데이터가 insert 가능 (하지만 실제로 정수형이 아닌 문자형이 저장)
+2. 정수형이 오기 때문에 CHECK 제약조건으로 필터링 가능.
+ex)
+~~~
+CREATE emp
+ ename varchar(100) //(글자제한) 문자로작성
+        <-
+insert emp values(1) //ename 은 문자이기 떄문에 1을넣어도 문자1이 넣어지기 때문에 sum,avg 등 안써짐
+***CHECK 제약조건 -> CHECk(예,아니오))//예,아니오만 올수있음
+ex ) col CHAR(1) CHECK (col IN ('A', 'B', 'C')) // col에는 'A', 'B' 또는 'C'만 저장할 수 있습니다.
+     ADD CONSTRAINT CHECK (col NOT IN ('X')); // col에는 'X'를 저장할 수 없습니다.
+~~~
