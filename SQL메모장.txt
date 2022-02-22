@@ -173,3 +173,78 @@ insert emp values(1) //ename 은 문자이기 떄문에 1을넣어도 문자1이
 ex ) col CHAR(1) CHECK (col IN ('A', 'B', 'C')) // col에는 'A', 'B' 또는 'C'만 저장할 수 있습니다.
      ADD CONSTRAINT CHECK (col NOT IN ('X')); // col에는 'X'를 저장할 수 없습니다.
 ~~~
+
+SQL
+- EXISTS
+서브쿼리가 실행이되면 참 아니면 거짓(데이터가 있는지 없는지만 조회)
+참일경우 EXISTS서브쿼리는 실행되지 않고 메인 쿼리만 실행
+--
+SELECT
+*
+FROM emp
+WHERE EXISTS(
+    SELECT *
+    FROM emp WHERE
+    job = 'manager'
+)
+--
+SELECT
+*
+FROM emp
+WHERE not EXISTS(
+    SELECT *
+    FROM emp WHERE
+    job = 'manager'
+)
+--
+not EXISTS = 데이터가 없을때 실행
+
+EXISTS는 UPDATE할때 사용
+--은행 
+update 백업실행
+set 백업날짜 = '220222'
+where EXISTS(
+    select * from 입출금
+)
+입출금내역이 있으면 백업날짜 업데이트 없으면 실행x
+--
+--EXISTS, not EXISTS
+=> 서브쿼리 데이터 여부에 따라 실행 판단 
+
+모델링
+=> (emp,dept)
+
+부서테이블없다고 가정
+테이블이름:emp
+empno,ename,dname,loc
+------------------------
+100,홍길동,개발팀,대전
+null,null,기획팀,대전
+*테이블에 null데이터가 많으면 정규화(모델링)고려 대상
+*update - >(delete->insert)
+
+primary key(PK)
+: 중복 허용 x
+: 자동으로 인덱스가 붙음
+
+FOREIGN KEY
+: 중복 허용 o -> 중복 허용x(unique key)
+: 인덱스가 없음
+: index를 생성해야 함
+-------------------
+문법)
+CREATE INDEX <인덱스명>
+ON <테이블명> (컬럼명1,컬럼명2,...)
+--------------------
+문법
+CREATE TABLE emp(
+deptno int UNIQUE KEY
+)
+=
+CREATE TABLE emp(
+    deptno int,
+    UNIQUE KEY emp(deptno)
+)
+-------------------
+UNIQUE key : PK키는 아니지만 그특성을 가짐
+(중복X /인덱스가 있음)
