@@ -18,6 +18,7 @@
     ex) emp테이블에 (급여가 3000천 이하) 을 찾고싶을떄.
 3. ***WHERE
     where 서브쿼리:
+    서브쿼리가 FROM 절에서 안에서 사용되는 경우, 해당 서브쿼리를 '인라인뷰'라고 한다. FROM 절에서 사용된 서브쿼리의 결과가 하나의 테이블에 대한 뷰(View)처럼 사용된다. 
     -단일행
     SELECT * FROM emp
     WHERE ename = (SELECT ename FROM emp WHERE empno = 3000)
@@ -248,3 +249,11 @@ CREATE TABLE emp(
 -------------------
 UNIQUE key : PK키는 아니지만 그특성을 가짐
 (중복X /인덱스가 있음)
+
+0. 테이블 설계
+1. 정규화
+(선택) 2. 역정규화
+(선택) 3. 분산저장 
+  - replication : 동기화
+   a컴퓨터   -  b컴퓨터  =주기적으로 동기화
+   select   -   나머지  
