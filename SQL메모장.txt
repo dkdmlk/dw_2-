@@ -34,8 +34,8 @@ DML
 
 - insert : 데이터를 저장
     작성법 1.
-    INSERT INTI 테이블 이름(컬럼이름 [ex)'name',sal,job])
-    VALUES(컬럼에해당하는데이터 [ex)'홍길동',3000,'manager']) 
+    ex)INSERT INTO 테이블 이름(컬럼이름 [ex)'name',sal,job])
+       VALUES(컬럼에해당하는데이터 [ex)'홍길동',3000,'manager']) 
     주의 : 테이블에 NULLABLE 
         1. 테이블에 job컬럼이 not null이면, insert할떄 무저건 데이터를 넣어야 함. 
         2. 테이블에 기본키가 auto increment 가 아니라면, 기본키 데이터를 넣어야 함.
@@ -90,7 +90,7 @@ DCL (data control Language) 데이터 제어언어
 GRANT  : 특정 사용자에게 권한 부여
 REBOKE : 특정 사용자 권한 회수
 
-TCL : 논리적인 작업의 단위를 묶어서 DML에 의해 조작된 결과를 작업단위 별로 제어하는 명령어
+TCL  논리적인 작업의 단위를 묶어서 DML에 의해 조작된 결과를 작업단위 별로 제어하는 명령어
 COMMIT (DML은 커밋 미포함,DDL은 커밋 포함)
 ROLLBACK : 실수로 DELETE 해도 ROLLBACK하면 최신 커밋상태로 돌아감
 
