@@ -67,15 +67,15 @@ ALTER TABLE ex_table MODIFY COLUMN sFifth VARCHAR(55);
 ~~~
 
 ## DCL (data control Language) 데이터 제어언어
-### GRANT  : 특정 사용자에게 권한 부여
-### REBOKE : 특정 사용자 권한 회수
+### 1. GRANT  : 특정 사용자에게 권한 부여
+### 2. REBOKE : 특정 사용자 권한 회수
 
 ## TCL  논리적인 작업의 단위를 묶어서 DML에 의해 조작된 결과를 작업단위 별로 제어하는 명령어
-## COMMIT (DML은 커밋 미포함,DDL은 커밋 포함)
+### 1. COMMIT (DML은 커밋 미포함,DDL은 커밋 포함)
     COMMIT 문은 관계형 데이터베이스 관리 시스템(RDBMS)에서 트랜잭션을 종료하고 다른 사용자에게 변경된 모든 사항을 보이도록 만드는 문이다. 
     일반적으로 트랜잭션 종료시 해당 업데이트를 확정한다는 의미에서 "커밋"이라고 사용한다.
 
-## ROLLBACK : 실수로 DELETE 해도 ROLLBACK하면 최신 커밋상태로 돌아감
+### 2. ROLLBACK : 실수로 DELETE 해도 ROLLBACK하면 최신 커밋상태로 돌아감
 ~~~
 예졔)
 UPDATE A SET VAL = 200 WHERE ID = '001';
