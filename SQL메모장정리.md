@@ -1,9 +1,9 @@
 
 ## DML(Data Manipilayion Language) 데이터 조작어
-### SELECT :데이터 조회
+### 1. SELECT :데이터 조회
 
 
-### 1. DELETE :데이터 삭제
+### 2. DELETE :데이터 삭제
 ~~~
 DELETE FROM 테이블 
 wHERE 컬럼 = 삭제할 데이터
@@ -14,7 +14,7 @@ wHERE 컬럼 = 삭제할 데이터
     삭제여부 컬럼을 만듬 ex) 컬럼이름 : 회원탈퇴 여부
                              데이터 : 'y' or 'n'
 
-### 2. UPDATE :데이터 수정
+### 3. UPDATE :데이터 수정
 ~~~
 update 테이블
 set 
@@ -22,7 +22,7 @@ set
 where 컬럼이름 = 바꿀위치
 ~~~
 
-### 3. INSERT :데이터 생성
+### 4. INSERT :데이터 생성
 ~~~
  작성법 1.
     ex)INSERT INTO 테이블 이름(컬럼이름 [ex)'name',sal,job])
