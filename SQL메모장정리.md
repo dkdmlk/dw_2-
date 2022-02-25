@@ -152,4 +152,4 @@ ex) ex)foreign key(deptno) references dept(deptno)  on delete CASCADE
 ## EXISTS
 ### 1.EXISTS () : TRUE면 실행
 ### 2. NOT EXISTS () : FALS 면 실행
-JOIN 을사용하면 데이터가 나옴
+EXISTS 안에 JOIN을 사용하면 EXISTS에서 조인한 내용이 나온다.
