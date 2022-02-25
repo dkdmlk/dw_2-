@@ -82,3 +82,69 @@ UPDATE A SET VAL = 200 WHERE ID = '001';
 CREATE TABLE B ( ID CHAR(3) PRIMARY KEY);
 ROLLBACK;
 ~~~
+
+
+## PRIMARY KEY(기본키)
+해당 테이블의 식별자역할
+테이블에 하나만 설정할 수 있는 키
+중복 불가능
+데이터의 유일성 보장
+UNIQUE KEY 와의 다른점은 NULL 값으로 구분
+NULL 값 불가능 only NOT NULL
+~~~
+create_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ***CONSTRAINT student_id_pk primary key(id)
+~~~
+
+## UNIQUE KEY(고유키)
+테이블 내 항상 유일해야 하는 값
+중복 불가능
+NULL 값 가능
+PRIMARY KEY 와의 다른점은 NULL 값으로 구분
+~~~
+2. CREATE TABLE 테이블이름
+
+(
+    필드이름 필드타입,
+    ...,
+    [CONSTRAINT 제약조건이름] UNIQUE (필드이름)
+)
+
+CREATE TABLE Test 
+(
+    ID INT UNIQUE,
+    Name VARCHAR(30),
+    ReserveDate DATE,
+    RoomNum INT
+);
+~~~
+## Foreign Key(왜래키)
+참조키(외래키)는 컬럼이름이 중요한게아니라, 데이터 타입이 같아야한다. 
+### 조건:참조할려는 컴럼은 고유한 데이터를 가진 컬럼이여야 한다.
+~~~
+ex) emp테이블에 deptno 컬럼이 있음.
+    deptno컬럼은 dept테이블에서!
+    emp테이블(자식)은 dept(부모)을 참조하고 있음.
+CREATE TABLE 테이블_이름 
+(
+    empno int(11),
+    ename VARCHAR(20),
+    detpno int(5)
+    foreign key(deptno) references dept(deptno)
+)
+~~~
+## 조건
+### on delete : 부모 데이터에 삭제 이벤트가 발생하면 자식 데이터에 이벤트 발생
+### on update  : 부모 데이터에 수정 이벤트가 발생하면 자식 데이터에 이벤트 발생
+~~~
+ex)foreign key(deptno) references dept(deptno)  on delete
+~~~
+## 이벤트종류 : 아래중 하나 선택
+### 1. CASCADE : 자식 데이터 삭제or수정
+### 2. set null : 자식 데이터 null 업데이트
+### 3. set DEFAULT : 자식 데이터 default 값으로 없데이트
+### *4. restrict(default) : 부모 데이터 삭제 or 수정 불가능
+### 5. NO ACTTON : 자식 테이블의 데이터는 변경되지 않습니다.
+~~~
+ex) ex)foreign key(deptno) references dept(deptno)  on delete CASCADE
+~~~
