@@ -148,3 +148,7 @@ ex)foreign key(deptno) references dept(deptno)  on delete
 ~~~
 ex) ex)foreign key(deptno) references dept(deptno)  on delete CASCADE
 ~~~
+
+## EXISTS
+### 1.EXISTS: TRUE면 실행
+### 2. NOT EXISTS : FALS 면 실행
