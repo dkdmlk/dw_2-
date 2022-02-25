@@ -65,6 +65,8 @@ ALTER TABLE <table_name>  : table 수정 (테이블 이름 변경할떄씀)
 ALTER TABLE [테이블명] MODIFY [컬럼명] [타입]
 ALTER TABLE ex_table MODIFY COLUMN sFifth VARCHAR(55);
 ~~~
+### RENAME 
+RENAME COLUMN 변경점칼럼 to NEW칼럼명
 
 ## DCL (data control Language) 데이터 제어언어
 ### 1. GRANT  : 특정 사용자에게 권한 부여
